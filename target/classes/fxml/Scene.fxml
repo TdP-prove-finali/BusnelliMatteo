@@ -1,0 +1,317 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane fx:id="borderPane" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.polito.tdp.tesiSuperlega.FXMLController">
+   <center>
+      <VBox BorderPane.alignment="CENTER">
+         <children>
+            <HBox>
+               <children>
+                  <Label text="Scegli una squadra" textAlignment="CENTER">
+                     <HBox.margin>
+                        <Insets bottom="10.0" left="50.0" right="10.0" top="10.0" />
+                     </HBox.margin>
+                  </Label>
+                  <ComboBox fx:id="cmbsquadra">
+                     <HBox.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </HBox.margin>
+                  </ComboBox>
+                  <Label text="Scegli un modulo">
+                     <HBox.margin>
+                        <Insets bottom="10.0" left="150.0" right="10.0" top="10.0" />
+                     </HBox.margin>
+                  </Label>
+                  <ComboBox fx:id="cmbModulo">
+                     <HBox.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </HBox.margin>
+                  </ComboBox>
+                  <Label text="Scegli un salary cap">
+                     <HBox.margin>
+                        <Insets bottom="10.0" left="150.0" right="10.0" top="10.0" />
+                     </HBox.margin>
+                  </Label>
+                  <TextField fx:id="txtsalarycap">
+                     <HBox.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </HBox.margin>
+                  </TextField>
+                  <Button fx:id="btnComponiSquadra" mnemonicParsing="false" onAction="#handleComponiSquadra" text="COMPONI SQUADRA">
+                     <HBox.margin>
+                        <Insets bottom="10.0" left="150.0" right="20.0" top="10.0" />
+                     </HBox.margin>
+                  </Button>
+               </children>
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
+            </HBox>
+            <HBox>
+               <children>
+                  <Label fx:id="lblErrore1" textFill="RED">
+                     <HBox.margin>
+                        <Insets left="1144.0" />
+                     </HBox.margin>
+                  </Label>
+               </children>
+            </HBox>
+            <HBox>
+               <children>
+                  <TableView fx:id="tblvgiocatori" visible="false">
+                    <columns>
+                      <TableColumn fx:id="colNome" prefWidth="124.80001294612885" text="Nome" />
+                      <TableColumn fx:id="colRuolo" prefWidth="42.400001525878906" text="Ruolo" />
+                        <TableColumn fx:id="colOverall" prefWidth="51.20002746582031" text="Overall" />
+                        <TableColumn fx:id="colStipendio" prefWidth="135.99993896484375" text="Stipendio" />
+                    </columns>
+                     <HBox.margin>
+                        <Insets bottom="10.0" left="50.0" right="10.0" top="10.0" />
+                     </HBox.margin>
+                  </TableView>
+                  <VBox>
+                     <children>
+                        <Button fx:id="btnVisualizzaStatGiocSelezionato" mnemonicParsing="false" onAction="#handleVisualizzaStatGiocSelezionato" text="Visualizza statistiche giocatore selezionato" visible="false">
+                           <VBox.margin>
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                           </VBox.margin>
+                        </Button>
+                        <Button fx:id="btnScegliGiocatore" mnemonicParsing="false" onAction="#handleScegliGiocatore" text="Scegli giocatore" textFill="RED" visible="false">
+                           <VBox.margin>
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                           </VBox.margin>
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Button>
+                        <HBox>
+                           <children>
+                              <Label fx:id="lblBudgetRimanente" text="Budget rimanente:" visible="false">
+                                 <HBox.margin>
+                                    <Insets left="10.0" right="10.0" top="10.0" />
+                                 </HBox.margin>
+                              </Label>
+                              <Label fx:id="lblBudgetRimasto">
+                                 <HBox.margin>
+                                    <Insets right="10.0" top="10.0" />
+                                 </HBox.margin>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <HBox>
+                           <children>
+                              <Label fx:id="lbl3" text="Giocatori da scegliere: " visible="false">
+                                 <HBox.margin>
+                                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                 </HBox.margin>
+                              </Label>
+                              <Label fx:id="lblNumGiocatori">
+                                 <HBox.margin>
+                                    <Insets bottom="10.0" right="10.0" top="10.0" />
+                                 </HBox.margin>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <HBox>
+                           <children>
+                              <Label fx:id="lblInt" text="Intesa totale:" visible="false">
+                                 <HBox.margin>
+                                    <Insets bottom="10.0" left="10.0" right="10.0" />
+                                 </HBox.margin>
+                              </Label>
+                              <Label fx:id="lblIntesaTotale" />
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+                  <Label fx:id="lblGiocatoreSuggerito" text="Giocatore suggerito:" visible="false">
+                     <HBox.margin>
+                        <Insets bottom="10.0" left="80.0" right="10.0" top="10.0" />
+                     </HBox.margin>
+                  </Label>
+                  <TextArea fx:id="txtGiocatoreSuggerito" editable="false" prefWidth="500.0" visible="false">
+                     <HBox.margin>
+                        <Insets bottom="10.0" left="35.0" right="50.0" top="10.0" />
+                     </HBox.margin>
+                  </TextArea>
+               </children>
+            </HBox>
+            <HBox>
+               <children>
+                  <VBox>
+                     <children>
+                        <Label fx:id="lbl1" text="Giocatori della tua squadra:" visible="false">
+                           <VBox.margin>
+                              <Insets bottom="10.0" left="50.0" right="10.0" />
+                           </VBox.margin>
+                        </Label>
+                        <TableView fx:id="tblvgiocatoriSquadra" prefHeight="400.0" prefWidth="500.0" visible="false">
+                          <columns>
+                            <TableColumn fx:id="clRuolo" prefWidth="52.800012946128845" text="Ruolo" />
+                            <TableColumn fx:id="clNome" prefWidth="135.1999282836914" text="Nome" />
+                              <TableColumn fx:id="clOv" prefWidth="75.20002746582031" text="Overall" />
+                              <TableColumn fx:id="clStip" prefWidth="102.4000244140625" text="Stipendio" />
+                              <TableColumn fx:id="clVal" prefWidth="132.0" text="Valore (€)" />
+                          </columns>
+                           <VBox.margin>
+                              <Insets bottom="10.0" left="50.0" right="10.0" />
+                           </VBox.margin>
+                        </TableView>
+                     </children>
+                  </VBox>
+                  <VBox>
+                     <children>
+                        <Label fx:id="lbl2" text="Giocatori scelti dalle altre squadre:" visible="false">
+                           <VBox.margin>
+                              <Insets bottom="10.0" left="350.0" right="10.0" />
+                           </VBox.margin>
+                        </Label>
+                        <TextArea fx:id="txtGiocatoriSceltiAltreSquadre" editable="false" prefHeight="400.0" prefWidth="500.0" visible="false">
+                           <VBox.margin>
+                              <Insets bottom="10.0" left="350.0" right="50.0" />
+                           </VBox.margin>
+                        </TextArea>
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+            <HBox>
+               <children>
+                  <Button fx:id="btnRimuoviGiocatore" mnemonicParsing="false" onAction="#handleRimuoviGiocatore" text="Rimuovi giocatore" visible="false">
+                     <HBox.margin>
+                        <Insets bottom="10.0" left="50.0" right="10.0" top="10.0" />
+                     </HBox.margin>
+                  </Button>
+                  <Label fx:id="lblErrore2" prefHeight="18.0" prefWidth="414.0" textFill="RED">
+                     <HBox.margin>
+                        <Insets bottom="10.0" left="10.0" top="10.0" />
+                     </HBox.margin>
+                  </Label>
+                  <Button fx:id="btnSimula" mnemonicParsing="false" onAction="#handleSimula" text="Visualizza squadre e vai alla SIMULAZIONE" textFill="RED" visible="false">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets bottom="30.0" left="250.0" right="10.0" top="10.0" />
+                     </HBox.margin>
+                  </Button>
+                  <Button fx:id="btnReset" mnemonicParsing="false" onAction="#handleReset" text="Reset" visible="false">
+                     <HBox.margin>
+                        <Insets bottom="10.0" left="200.0" right="10.0" top="10.0" />
+                     </HBox.margin>
+                  </Button>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </center>
+   <top>
+      <HBox BorderPane.alignment="CENTER">
+         <children>
+            <ImageView fx:id="immMilan" fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../immagini/milan.png" />
+               </image>
+               <HBox.margin>
+                  <Insets left="80.0" />
+               </HBox.margin>
+            </ImageView>
+            <ImageView fx:id="immArsenal" fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../immagini/arsenal.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="immAtletico" fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../immagini/atletico.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="immChelsea" fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../immagini/chelsea.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="immBarca" fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../immagini/barca.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="immBayern" fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../immagini/bayern.png" />
+               </image>
+               <HBox.margin>
+                  <Insets right="10.0" />
+               </HBox.margin>
+            </ImageView>
+            <VBox prefHeight="100.0">
+               <children>
+                  <Label text="Welcome to">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
+                  </Label>
+                  <Label text="SUPERLEAGUE">
+                     <font>
+                        <Font name="Arial Black" size="30.0" />
+                     </font>
+                  </Label>
+               </children>
+            </VBox>
+            <ImageView fx:id="immInter" fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../immagini/inter.png" />
+               </image>
+               <HBox.margin>
+                  <Insets left="10.0" />
+               </HBox.margin>
+            </ImageView>
+            <ImageView fx:id="immJuve" fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../immagini/juve.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="immLiverpool" fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../immagini/liverpool.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="immCity" fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../immagini/city.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="immUnited" fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../immagini/united.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="immTott" fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../immagini/tottenham.png" />
+               </image>
+            </ImageView>
+         </children>
+         <BorderPane.margin>
+            <Insets top="10.0" />
+         </BorderPane.margin>
+      </HBox>
+   </top>
+</BorderPane>
