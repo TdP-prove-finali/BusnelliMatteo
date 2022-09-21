@@ -4,7 +4,7 @@ Istruzioni per l'installazione e l'utilizzo:
 
 2 - Importare il progetto.
 
-3 - Caricare il dabatabe (URI: https://github.com/TdP-prove-finali/BusnelliMatteo/tree/main/tesiSuperlega/database) , sul proprio database MySQL.
+3 - Caricare il dabatabe (URI: https://github.com/TdP-prove-finali/BusnelliMatteo/tree/main/tesiSuperlega/Database) , sul proprio database MySQL.
 
 4 - Modificare, all'interno della classe ConnectDB, contenuta nel package db, la password di accesso al database, inserendo la propria.
 
